@@ -1,17 +1,50 @@
+class User {
+  String name;
+
+  User(String name) {
+    this.name = name;
+  }
+
+  // コンストラクタ
+  User() {
+    // this.name = "Me!";
+    this("Me!");
+  }
+
+  void sayHi() {
+    System.out.println("Hi! " + this.name);
+  }
+
+}
+
+class AdminUser extends User {
+  AdminUser(String name) {
+    super(name);
+  }
+
+  @Override
+  void sayHi() {
+    System.out.println("[Admin]Hi! " + this.name);
+  }
+
+  void sayHello() {
+    System.out.println("Hello! " + this.name);
+  }
+
+}
+
 public class MyApp {
   public static void main(String[] args) {
 
-  int[] sales = {700, 400, 500};
+    User tom = new User("Tom");
+    System.out.println(tom.name);
+    tom.sayHi();
 
 
-
-    // for (int i = 0; i < sales.length; i++) {
-    //   System.out.println(sales[i]);
-    // }
-
-    for (int sale : sales) {
-      System.out.println(sale);
-    }
+    AdminUser Bob = new AdminUser("Bob");
+    System.out.println(Bob.name);
+    Bob.sayHi();
+    Bob.sayHello();
 
   }
 }
